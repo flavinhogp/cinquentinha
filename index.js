@@ -3,13 +3,13 @@ const bodyParser = require('body-parser');
 const urlencodedParser = bodyParser.urlencoded({ extended: false })
 //const hostname = '127.0.0.1';
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const path = require("path")
 const sqlite3 = require('sqlite3').verbose();
 const app = express();
-const DBPATH = path.join(__dirname, 'dbteste.db');
+const DBPATH = 'dbteste.db';
 
-app.use(express.static(path.join(__dirname,"/frontend/")));
+app.use(express.static("./frontend/"));
 
 app.use(express.json());
 
