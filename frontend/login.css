@@ -1,0 +1,125 @@
+/*TELA DE LOGIN*/
+
+/*atribuições visuais da tela de login*/
+body{
+    text-align: center;
+    background: rgb(2,0,36);
+    background: linear-gradient(45deg, rgba(9,9,121,1) 0%, rgb(82, 111, 255) 39%,  #2d3870 100%);
+    margin: 0;
+    padding: 0;
+}
+
+
+.container{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 60px;
+}
+
+#login{
+    position: relative;
+    height: 310px;
+    width: 40%;
+    max-width: 400px;
+    top: -45px;
+    background-color:#c3c4ca;
+    display: flex;
+    flex-direction: row;
+    border-radius: 20px;
+    align-self: center;
+    justify-content: center;
+    margin: 0 auto;
+    
+}
+#login form {
+    width: 100%;
+}
+/*atribuições visuais do texto*/
+#text input {
+    width: 50%;
+    height: 25px;
+    border: none;
+    outline-style: hidden;
+    outline-width: 2px;
+    border-radius: 5px;
+}
+#text input{
+    border: none;
+    outline-style: hidden;
+    outline-width: 2px;
+    font-size: medium;
+}
+#text input:focus{
+    outline-width: 2px;
+    outline-style:solid;
+}
+#text p{
+    padding-right: 190px;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+#text{
+    margin-top: 50px;
+}
+
+/*atribuições visuais dos botões*/
+button{
+    margin-top: 40px;
+    cursor:pointer;
+    height: 32px;
+    width: 100px;
+    border-radius: 10px;
+    border-style: none;
+    background-color: #ffffff; 
+    color: #818181;
+    box-shadow: 0 4px 5px #6f6e7748;
+}
+
+button:hover {
+    transition: ease 500ms;
+    background-color: rgb(82, 111, 255);
+    color: #f2f2f2;
+    font-weight: bold;
+}
+
+   img{
+    width: 400px;
+    height: 220px;
+    margin-top: 20px;
+   }
+hr{
+    margin-top: 20px;
+    margin-left: 60px;
+    margin-right: 60px;
+}
+
+#eye{
+    margin-left: 18%;
+    margin-top: -6.3%;
+    position: absolute;
+    z-index: 3;
+    cursor: pointer;
+    /* Fazer ser inselecionável */
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.frg{
+    color: rgb(99, 99, 99);
+    position: absolute;
+    margin-top: 1%;
+    margin-left: -4.5%;
+    font-size: 80%;
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.frg:hover{
+    color: rgb(0, 0, 0);
+}

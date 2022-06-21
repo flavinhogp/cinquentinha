@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://fonts.sandbox.google.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" href="style-Geral.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <title>Aba Geral</title>
+</head>
+<body onload="generateGraphics();generateLines();"> <!-- função que registra a data atual -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <div class="container-nosso"> <!-- área de todas aplicações -->
+
+        <header> <!-- nosso HEADER estático -->
+            <div class="barra-pesqusia">
+                <button class="btn-meu"><span class="material-symbols-outlined">search</span></button>
+
+                <input class="barra-texto" type="text" name="" placeholder="Pesquisar projeto">
+
+                <span class="material-symbols-outlined centro" id="fitro-posicao">filter_list</span>
+                
+            </div>
+            <nav class="bar">   
+
+                <ul id="estilonav">  <!-- barra de navegação do HEADER -->
+                    <li><a class="active" href="abageral.html">Visão Geral</a></li>
+                    <li><a class="n-active" href="projetos.html">Por Projeto</a></li>
+                </ul>
+            </nav>
+            <div class="leva">
+                <div class="login">
+                    <a class="" href="index.html">Roberto</a>
+                </div>
+            </div>
+        </header>
+
+        <div id="graficos"> <!-- primeira parte do conteudo não estatico da aplicação / área dedicada aos gráficos -->
+            <canvas id="line-chart" width="100px" height="30px"></canvas>
+            <script>
+                new Chart(document.getElementById("line-chart"), {
+                    type: 'line',
+                    data: {
+                        
+                        labels: ["Jan", "Fev", "Mar", "Abr", "Jun", "Jul", "Ago", "Set", "Out", "Nov", "Dez"],
+                        datasets: [{
+                            label: "Limitações com recursos internos",
+                            borderColor: "#2d3870",
+                            borderWidth: 2,
+                            data: [508, 508, 508, 508, 508, 508, 508, 508, 508, 508, 508, 508],
+                            fill: false
+                        }, {
+                            label: "Limitações com recursos internos e externos",
+                            borderColor: "#8d8d8d",
+                            borderWidth: 2,
+                            data: [620, 620, 620, 620, 620, 620, 620, 620, 620, 620, 620, 620],
+                            fill: false
+                        }, {
+                            label: "Necessidade dos recursos",
+                            borderColor: "#ef0404",
+                            data: [800, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800, 800],
+                            fill: false
+                        }, {
+                            label: "Demanda dos projetos",
+                            borderColor: "rgb(82, 111, 255)",
+                            data: [408, 547, 250, 734, 800, 520, 380, 380, 300, 660, 420, 380],
+                            fill: true,
+                            backgroundColor: "rgb(82, 111, 255,0.4)",
+                            lineTension: 0
+                        },
+                        ]
+                    },
+                    options: {
+                        title: {
+                            display: true,
+                            text: 'Demanda total dos projetos'
+                        },
+                        legend: { display: true }
+                    }
+                });
+            </script>
+            <hr>
+            <canvas id="bar-chart" width="100px" height="30px"></canvas>
+
+
+
+            <hr>
+
+           
+        </div>
+        <!--calendário dinâmico-->
+        <div id="calendario"> <!-- segunda parte do conteúdo não estatico da aplicação, responsável pelo calendário dinâmico -->
+            <div class="month-div" id="add">
+                <ul class="month">    
+                    <li><h3> jan </h3></li>
+                 <li><h3> fev </h3></li>
+                 <li><h3> mar </h3></li>
+                 <li><h3> abr </h3></li>
+                 <li><h3> mai </h3></li>
+                 <li><h3> jun </h3></li>
+                 <li><h3> jul </h3></li>
+                 <li><h3> ago </h3></li>
+                 <li><h3> set </h3></li>
+                 <li><h3> out </h3></li>
+                 <li><h3> nov </h3></li>
+                 <li><h3> dez </h3></li>
+                </ul>
+            </div>
+                
+            <u id="c-todos"> <!-- todos os projetos exibidos no calendário sáo alocados aqui -->
+            </u>
+        </div>
+
+        <div id="Controle">
+            
+        </div>
+
+        <div id="menu">  <!-- Menu lateral. Aqui são colocados todos os botões e a logo da Yamaha -->
+             <div class="centro"><img id="logo" src="img/logo2.png" alt=""></div> <!-- logo -->
+                <nav id="nav-menu"> <!-- botões -->
+                    <ul class="centro">
+                    <div class="profi">
+                        <li class="ordem"><a class="centra ordem" href="profissionais.html"><span
+                                    class="material-symbols-outlined">
+                                    person_search
+                                </span>Profissionais</a></li>
+                    </div>
+                    <div class="ative-projeto">
+                        <li class="ordem"><span class="material-symbols-outlined">
+                                task
+                            </span>Projetos</li>
+                    </div>
+                    <div class="modal-style" data-toggle="modal" data-target="#modalpro" id="buttonmodal">
+                        <li class="ordem">
+                            <span class="material-symbols-outlined">
+                                add
+                            </span>Criar Projeto
+                        </li>
+                    </div>
+                    </ul>
+                 </nav>
+        </div>
+    </div>
+
+
+    <!-- modal para adicionar projetos -->
+    <div class="modal fade" id="modalpro" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="nome">
+                        <!--atributos do projeto-->
+                        <label for="nome">Nome do Projeto</label>
+                        <input name="nome" type="text" id="nP">
+                    </div>
+                    <div id="unidade">
+                        <label for="unidades">Unidades: </label>
+                        <select name="unidades" id="unidades">
+                            <option value="sp">SP</option>
+                            <option value="am">AM</option>
+                            <option value="ambos">Ambos</option>
+                        </select>
+                        <div id="nfuncionarios">
+                            <label for="nfunciona">Número de Funcionários: </label>
+                            <input type="number" name="nfunciona">
+                        </div>
+                    </div>
+                    <!-- dia, mês e ano que inicia o projeto-->
+                    <div id="inicio">
+                        <p>Data de início</p>
+                        <label for="dia">Dia: </label>
+                        <select name="dia" id="dia">
+                            <option value="01">1</option>
+                            <option value="02">2</option>
+                            <option value="03">3</option>
+                            <option value="04">4</option>
+                            <option value="05">5</option>
+                            <option value="06">6</option>
+                            <option value="07">7</option>
+                            <option value="08">8</option>
+                            <option value="09">9</option>
+                            <option value="10">10</option>
+                            <option value="11">11</option>
+                            <option value="12">12</option>
+                            <option value="13">13</option>
+                            <option value="14">14</option>
+                            <option value="15">15</option>
+                            <option value="16">16</option>
+                            <option value="17">17</option>
+                            <option value="18">18</option>
+                            <option value="19">19</option>
+                            <option value="20">20</option>
+                            <option value="21">21</option>
+                            <option value="22">22</option>
+                            <option value="23">23</option>
+                            <option value="24">24</option>
+                            <option value="25">25</option>
+                            <option value="26">26</option>
+                            <option value="27">27</option>
+                            <option value="28">28</option>
+                            <option value="29">29</option>
+                            <option value="30">30</option>
+                            <option value="31">31</option>
+                        </select>
+                        <label for="meses">Mês: </label>
+                        <select name="meses" id="meses" >
+                            <option value="0">Janeiro</option>
+                            <option value="1">Fevereiro</option>
+                            <option value="2">Março</option>
+                            <option value="3">Abril</option>
+                            <option value="4">Maio</option>
+                            <option value="5">Junho</option>
+                            <option value="6">Julho</option>
+                            <option value="7">Agosto</option>
+                            <option value="8">Setembro</option>
+                            <option value="9">Outubro</option>
+                            <option value="10">Novembro</option>
+                            <option value="11">Dezembro</option>
+                            <label for="Ano">Ano: </label>
+                        </select>
+                        <label for="Ano">Ano: </label>
+                        <select name="Ano" id="Ano">
+                            <option value="2022">2022</option>
+                            <option value="2023">2023</option>
+                            <option value="2024">2024</option>
+                            <option value="2025">2025</option>
+                            <option value="2026">2026</option>
+                            <option value="2027">2027</option>
+                            <option value="2028">2028</option>
+                            <option value="2029">2029</option>
+                            <option value="2030">2030</option>
+                            <option value="2031">2031</option>
+                            <option value="2032">2032</option>
+                            <option value="2033">2033</option>
+                            <option value="2034">2034</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- dia, mês e ano que encerra o projeto-->
+                <div id="duracao">
+                    <p>Estimativa de término:</p>
+                    <label for="meses1">Mês: </label>
+                    <select name="meses1" id="meses1" >
+                        <option value="0">Janeiro</option>
+                        <option value="1">Fevereiro</option>
+                        <option value="2">Março</option>
+                        <option value="3">Abril</option>
+                        <option value="4">Maio</option>
+                        <option value="5">Junho</option>
+                        <option value="6">Julho</option>
+                        <option value="7">Agosto</option>
+                        <option value="8">Setembro</option>
+                        <option value="9">Outubro</option>
+                        <option value="10">Novembro</option>
+                        <option value="11">Dezembro</option>
+                    </select>
+                    <label for="Ano">Ano: </label>
+                    <select name="Ano" id="Ano1">
+                        <option value="2022">2022</option>
+                        <option value="2023">2023</option>
+                        <option value="2024">2024</option>
+                        <option value="2025">2025</option>
+                        <option value="2026">2026</option>
+                        <option value="2027">2027</option>
+                        <option value="2028">2028</option>
+                        <option value="2029">2029</option>
+                        <option value="2030">2030</option>
+                        <option value="2031">2031</option>
+                        <option value="2032">2032</option>
+                        <option value="2033">2033</option>
+                        <option value="2034">2034</option>
+                    </select>
+                </div>
+                <!-- área do projeto -->
+                <div id="area">
+                    <label for="areas">Área Trabalhada: </label>
+                    <select name="areas" id="areas">
+                        <option value="area1">Área 1</option>
+                        <option value="area2">Área 2</option>
+                        <option value="area3">Área 3</option>
+                        <option value="area4">Área 4</option>
+                        <option value="area5">Área 5</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <!-- botão que chama a função do JavaScript para criar o projeto-->
+                <button type="button" onclick="criarProjeto()" data-dismiss="modal" id="teste">Criar</button>
+            </div>
+        </div>
+    </div>
+    </div>
+    </div>
+    <script src="script.js"></script>
+    <script src="graficos.js"></script>
+</body>
+
+</html>
